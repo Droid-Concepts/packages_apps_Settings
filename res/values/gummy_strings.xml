@@ -586,4 +586,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcuts_icon_picker_twitter">Twitter</string>
     <string name="shortcuts_icon_picker_unlock">Unlock</string>
 
+    <!-- Themes settings  -->
+    <string name="themes_settings_title">Themes</string>
 </resources>
