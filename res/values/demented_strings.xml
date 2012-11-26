@@ -1252,4 +1252,12 @@
     <string name="color_red_title">Red</string>
     <string name="color_green_title">Green</string>
     <string name="color_blue_title">Blue</string>
+
+    <!-- Lock Screen options -->
+    <string name="lock_screen_title">Lock screen</string>
+    <string name="lockscreen_text_color_title">Lockscreen text color</string>
+    <string name="lockscreen_battery_title">Lockscreen battery percentage</string>
+    <string name="lockscreen_battery_summary">Always show battery percentage on the lockscreen</string>
+    <string name="lockscreen_auto_rotate_title">Allow lockscreen rotation</string>
+    <string name="lockscreen_auto_rotate_summary">Lockscreen will have ability to rotate via device orientation. This is independent of Auto-rotation in display</string>
 </resources>

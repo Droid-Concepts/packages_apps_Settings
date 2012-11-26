@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -30,6 +31,7 @@ import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.preference.PreferenceCategory;
 import android.provider.MediaStore;
@@ -40,6 +42,7 @@ import android.widget.Toast;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.android.settings.Utils;
 import com.android.settings.widget.SeekBarPreference;
 
@@ -51,6 +54,16 @@ import net.margaritov.preference.colorpicker.ColorPickerView;
 
 public class LockscreenInterface extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
     private static final String TAG = "LockscreenInterface";
+
+    private static final String PREF_LOCKSCREEN_AUTO_ROTATE = "lockscreen_auto_rotate";
+    private static final String PREF_LOCKSCREEN_BATTERY = "lockscreen_battery";
+    private static final String PREF_LOCKSCREEN_TEXT_COLOR = "lockscreen_text_color";
+
+    CheckBoxPreference mLockscreenBattery;
+    ColorPickerPreference mLockscreenTextColor;
+    CheckBoxPreference mLockscreenAutoRotate;
+
+    Context mContext;
 
     private static final int LOCKSCREEN_BACKGROUND = 1024;
 
@@ -142,6 +155,17 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements P
         mLockscreenUseCarousel.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.LOCKSCREEN_USE_WIDGET_CONTAINER_CAROUSEL, 0) == 1);
 
+        mLockscreenAutoRotate = (CheckBoxPreference)findPreference(PREF_LOCKSCREEN_AUTO_ROTATE);
+        mLockscreenAutoRotate.setChecked(Settings.System.getBoolean(mContext
+                .getContentResolver(), Settings.System.LOCKSCREEN_AUTO_ROTATE, false));
+
+        mLockscreenBattery = (CheckBoxPreference)findPreference(PREF_LOCKSCREEN_BATTERY);
+        mLockscreenBattery.setChecked(Settings.System.getBoolean(getActivity().getContentResolver(),
+                Settings.System.LOCKSCREEN_BATTERY, false));
+
+        mLockscreenTextColor = (ColorPickerPreference) findPreference(PREF_LOCKSCREEN_TEXT_COLOR);
+        mLockscreenTextColor.setOnPreferenceChangeListener(this);
+
         float bgAlpha;
         try{
             bgAlpha = Settings.System.getFloat(getActivity()
@@ -213,6 +237,17 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements P
         } else if (preference == mLockscreenUseCarousel) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_USE_WIDGET_CONTAINER_CAROUSEL, mLockscreenUseCarousel.isChecked() ? 1 : 0);
+            return true;
+        }
+        if (preference == mLockscreenBattery) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_BATTERY,
+                    ((CheckBoxPreference)preference).isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mLockscreenAutoRotate) {
+            Settings.System.putBoolean(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_AUTO_ROTATE,
+                    ((CheckBoxPreference) preference).isChecked());
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -370,7 +405,22 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements P
                 }
                 Toast.makeText(mActivity, getResources().getString(R.string.
                         lockscreen_background_result_not_successful), Toast.LENGTH_LONG).show();
-            }
+     }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        boolean handled = false;
+        if (preference == mLockscreenTextColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_CUSTOM_TEXT_COLOR, intHex);
+            return true;
+        }
+        return false;
+          
+           }
         }
     }
 }
