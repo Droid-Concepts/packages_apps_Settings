@@ -1608,6 +1608,8 @@
         <activity android:name=".cyanogenmod.PowerWidget" />
         <activity android:name=".cyanogenmod.NotificationDrawerStyle" />
         <activity android:name=".cyanogenmod.SystemSettings" />
+        <activity android:name=".cyanogenmod.StatusBar" />
+        <activity android:name=".cyanogenmod.StatusBarClockStyle" />
         <activity android:name="Settings$SystemSettingsActivity"
                 android:label="@string/system_settings_title"
                 android:taskAffinity=""
