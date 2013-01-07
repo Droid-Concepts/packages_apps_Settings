@@ -82,4 +82,9 @@
     <string name="set">Set</string>
     <string name="ics_color">Holo</string>
 
+   <!-- Category title for headset specific Settings.
+        [CHAR LIMIT=40] -->
+   <string name="headset_category_title">Headset</string>
+   <string name="headset_connect_player_title">Launch music app on connect</string>
+
 </resources>
