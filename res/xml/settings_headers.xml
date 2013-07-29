@@ -106,6 +106,12 @@
         android:icon="@drawable/ic_action_permission"
         android:title="@string/superuser" />
 
+    <header
+	android:id="@+id/about"
+        android:icon="@drawable/ic_about_dc"
+	android:fragment="com.android.settings.cyanogenmod.About"
+	android:title="@string/about_droid_concepts" />
+
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />

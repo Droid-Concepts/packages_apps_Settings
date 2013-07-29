@@ -696,4 +696,16 @@
     <string name="missed_call_breath">Breathing Missed Call</string>
     <string name="missed_call_breath_summary">Show missed call icon with a breathing effect</string>
 
+    <!-- About developer -->
+    <string name="donate_cphelps76">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=8K47ZJGFZHES2</string>
+    <string name="donate_davros">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=KS7YFYDCVY7HU</string>
+    <string name="devs">Developers</string>
+    <string name="droid_concepts">Droid Concepts</string>
+    <string name="dc_website_title">DC Website</string>
+    <string name="dc_source_title">Droid Concepts Source</string>
+    <string name="dc_source_summary">Droid Concepts is fully open source. You can always check out the latest DC source at github.com/Droid-Concepts-</string>
+    <string name="dc_website_summary">www.droidconcepts.com</string>
+    <string name="about_droid_concepts">About Droid Concepts</string>
+    <string name="about_droid_concepts_summary">@null</string>
+
 </resources>

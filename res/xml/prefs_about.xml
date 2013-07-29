@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:demented="http://schemas.android.com/apk/res/com.android.settings">
+
+        <PreferenceScreen android:key="logo1"
+                android:layout="@layout/logo_row" />
+
+	<PreferenceCategory
+		android:key="devs"
+		android:title="@string/devs">
+		<com.android.settings.cyanogenmod.DeveloperPreference
+			android:title="cphelps76"
+			demented:twitterHandle="csphelps76"
+			demented:donateLink="@string/donate_cphelps76" />
+
+		<com.android.settings.cyanogenmod.DeveloperPreference
+			android:title="davros"
+			demented:twitterHandle="davros"
+			demented:donateLink="@string/donate_davros" />
+
+	</PreferenceCategory>
+
+	<PreferenceCategory
+		android:key="droid_concepts"
+		android:title="@string/droid_concepts">
+
+		<Preference
+			android:key="dc_website"
+			android:title="@string/dc_website_title"
+			android:summary="@string/dc_website_summary" />
+
+		<Preference
+			android:key="dc_source"
+			android:title="@string/dc_source_title"
+			android:summary="@string/dc_source_summary" />
+
+	</PreferenceCategory>
+
+</PreferenceScreen>
