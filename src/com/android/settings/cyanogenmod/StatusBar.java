@@ -103,6 +103,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         if (Utils.isTablet(getActivity())) {
             mPrefCategoryGeneral.removePreference(mStatusBarBrightnessControl);
+        }
 
         mClockStyle = (PreferenceScreen) prefSet.findPreference("clock_style_pref");
         if (mClockStyle != null) {
