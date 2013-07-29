@@ -1843,5 +1843,13 @@
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name=".cyanogenmod.About"
+            android:label="@string/about_droid_concepts" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
     </application>
 </manifest>

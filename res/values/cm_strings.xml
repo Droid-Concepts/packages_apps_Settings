@@ -986,4 +986,16 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="privacy_guard_manager_show_system_apps">Show built-in apps</string>
     <string name="privacy_guard_manager_filter_permissions">Permission filter</string>
 
+    <!-- About developer -->
+    <string name="donate_cphelps76">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=8K47ZJGFZHES2</string>
+    <string name="donate_davros">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=KS7YFYDCVY7HU</string>
+    <string name="devs">Developers</string>
+    <string name="droid_concepts">Droid Concepts</string>
+    <string name="dc_website_title">DC Website</string>
+    <string name="dc_source_title">Droid Concepts Source</string>
+    <string name="dc_source_summary">Droid Concepts is fully open source. You can always check out the latest DC source at github.com/Droid-Concepts-</string>
+    <string name="dc_website_summary">www.droidconcepts.com</string>
+    <string name="about_droid_concepts">About Droid Concepts</string>
+    <string name="about_droid_concepts_summary">@null</string>
+
 </resources>
