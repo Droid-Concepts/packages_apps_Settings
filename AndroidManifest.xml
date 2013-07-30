@@ -1607,9 +1607,9 @@
         <!-- CyanogenMod activities Start -->
         <activity android:name=".cyanogenmod.PowerWidget" />
         <activity android:name=".cyanogenmod.NotificationDrawerStyle" />
-        <activity android:name=".cyanogenmod.StatusBarBatteryStyle" />
+        <activity android:name=".slim.StatusBarBatteryStyle" />
         <activity android:name=".cyanogenmod.StatusBar" />
-        <activity android:name=".cyanogenmod.StatusBarClockStyle" />
+        <activity android:name=".slim.StatusBarClockStyle" />
         <activity android:name=".cyanogenmod.SystemSettings" />
         <activity android:name="Settings$SystemSettingsActivity"
                 android:label="@string/system_settings_title"
