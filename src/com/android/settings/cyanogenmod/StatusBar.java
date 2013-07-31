@@ -45,7 +45,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private PreferenceScreen mClockStyle;
     private PreferenceCategory mPrefCategoryGeneral;
 
-    Context mContext
+    Context mContext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
