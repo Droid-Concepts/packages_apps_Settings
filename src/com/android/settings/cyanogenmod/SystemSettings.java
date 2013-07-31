@@ -208,16 +208,9 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
         super.onPause();
     }
 
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if (preference == mExpandedDesktopPref) {
-            int expandedDesktopValue = Integer.valueOf((String) objValue);
-            updateExpandedDesktop(expandedDesktopValue);
-            return true;
-        } else if (preference == mExpandedDesktopNoNavbarPref) {
-            boolean value = (Boolean) objValue;
-            updateExpandedDesktop(value ? 2 : 0);
-            return true;
-        } else if (preference == mCustomLabel) {
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mCustomLabel) {
             AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
 
             alert.setTitle(R.string.custom_carrier_label_title);
@@ -246,6 +239,19 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
             });
 
             alert.show();
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        if (preference == mExpandedDesktopPref) {
+            int expandedDesktopValue = Integer.valueOf((String) objValue);
+            updateExpandedDesktop(expandedDesktopValue);
+            return true;
+        } else if (preference == mExpandedDesktopNoNavbarPref) {
+            boolean value = (Boolean) objValue;
+            updateExpandedDesktop(value ? 2 : 0);
+            return true;
         }
         return false;
     }
