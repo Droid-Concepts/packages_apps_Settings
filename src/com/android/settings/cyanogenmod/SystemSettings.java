@@ -31,8 +31,6 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.TwoStatePreference;
 import android.provider.Settings;
 import android.text.Spannable;
 import android.util.Log;
@@ -62,21 +60,16 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_EXPANDED_DESKTOP = "expanded_desktop";
     private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR = "expanded_desktop_no_navbar";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
-    private static final String PREF_POWER_CRT_MODE = "system_power_crt_mode";
-    private static final String PREF_POWER_CRT_SCREEN_OFF = "system_power_crt_screen_off";
 
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
     private PreferenceScreen mPieControl;
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
-    private static ContentResolver mContentResolver;
 
     Preference mCustomLabel;
     String mCustomLabelText = null;
     Context mContext;
-    ListPreference mCrtMode;
-    CheckBoxPreference mCrtOff;
 
     private boolean mIsPrimary;
 
@@ -180,17 +173,6 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
         mCustomLabel = findPreference(PREF_CUSTOM_CARRIER_LABEL);
         updateCustomLabelTextSummary();
 
-        boolean isCrtOffChecked = (Settings.System.getBoolean(mContentResolver,
-                        Settings.System.SYSTEM_POWER_ENABLE_CRT_OFF, true));
-        mCrtOff = (CheckBoxPreference) findPreference(PREF_POWER_CRT_SCREEN_OFF);
-        mCrtOff.setChecked(isCrtOffChecked);
-
-        mCrtMode = (ListPreference) findPreference(PREF_POWER_CRT_MODE);
-        int crtMode = Settings.System.getInt(mContentResolver,
-                Settings.System.SYSTEM_POWER_CRT_MODE, 0);
-        mCrtMode.setValue(Integer.toString(Settings.System.getInt(mContentResolver,
-                Settings.System.SYSTEM_POWER_CRT_MODE, crtMode)));
-        mCrtMode.setOnPreferenceChangeListener(this);
     }
 
     private void updateCustomLabelTextSummary() {
@@ -257,11 +239,6 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
             });
 
             alert.show();
-        } else if (preference == mCrtOff) {
-            Settings.System.putBoolean(mContentResolver,
-                    Settings.System.SYSTEM_POWER_ENABLE_CRT_OFF,
-                    ((TwoStatePreference) preference).isChecked());
-            return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -274,13 +251,6 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
         } else if (preference == mExpandedDesktopNoNavbarPref) {
             boolean value = (Boolean) objValue;
             updateExpandedDesktop(value ? 2 : 0);
-            return true;
-         } else if (preference == mCrtMode) {
-            int crtMode = Integer.valueOf((String) objValue);
-            int index = mCrtMode.findIndexOfValue((String) objValue);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.SYSTEM_POWER_CRT_MODE, crtMode);
-            mCrtMode.setSummary(mCrtMode.getEntries()[index]);
             return true;
         }
         return false;
