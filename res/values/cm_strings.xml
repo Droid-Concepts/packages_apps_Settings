@@ -1045,7 +1045,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="status_bar_battery_status_circle">Circle</string>
     <string name="status_bar_battery_status_circle_percentage">Circle with percentage</string>
     <string name="status_bar_battery_status_dotted_circle">Dotted Circle with percentage</string>
-    <string name="status_bar_battery_status_digital">Digital</string>
     <string name="battery_bar">Battery bar location</string>
     <string name="battery_bar_color">Battery bar color</string>
     <string name="battery_bar_cat">Battery bar style</string>
