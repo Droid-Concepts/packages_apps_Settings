@@ -852,9 +852,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="advanced_reboot_title">Advanced reboot</string>
     <string name="advanced_reboot_summary">When unlocked, include options in the power menu for rebooting into recovery or bootloader</string>
 
-    <!-- Navigation bar buttons and shortcuts category title -->
-    <string name="navigation_bar_category">Navigation bar</string>
-
     <!-- Navigation ring shortcuts -->
     <string name="navigation_ring_title">Quick launch shortcuts</string>
     <string name="navring_target_reset_message">Delete all user created navigation bar shortcuts and restore to default?</string>
@@ -1104,4 +1101,10 @@ rience. Enable at your own discretion.</string>
     <string name="system_power_crt_mode_horizontal">Portrait horizontal</string>
     <string name="system_power_crt_mode_vertical">Portrait vertical</string>
     <string name="system_power_crt_mode_both">Orientation dependent</string>
+
+    <!-- System Settings Catagory Headers -->
+    <string name="status_bar_general_catagory">Status Bar / Notification Drawer</string>
+    <string name="navigation_bar_category">Navigation bar</string>
+    <string name="advanced_catagory_title">Advanced</string>
+    <string name="general_settings_title">General</string>
 </resources>
