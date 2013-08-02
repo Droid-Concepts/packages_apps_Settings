@@ -87,6 +87,8 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
         addPreferencesFromResource(R.xml.system_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
 
+        mContentResolver = getContentResolver();
+
         // Only show the hardware keys config on a device that does not have a navbar
         // and the navigation bar config on phones that has a navigation bar
         boolean removeKeys = false;
