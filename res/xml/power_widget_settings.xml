@@ -17,7 +17,28 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Notification drawer Power Widget -->
+    <PreferenceCategory
+       android:title="@string/notification_drawer_title">
+
+        <PreferenceScreen
+            android:key="notification_shortcuts_settings"
+            android:fragment="com.android.settings.cyanogenmod.notificationshortcuts.NotificationShortcuts"
+            android:title="@string/notification_shortcuts_settings_title"
+            android:summary="@string/notification_shortcuts_settings_summary" />
+
+        <Preference
+            android:fragment="com.android.settings.cyanogenmod.NotificationDrawerStyle"
+            android:key="notification_style"
+            android:title="@string/notification_style_title" />
+
+         <CheckBoxPreference
+            android:id="@+id/dc_notification_shortcuts"
+            android:title="@string/notification_show_wifi_ssid_title"
+            android:summary="@string/notification_show_wifi_ssid_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory
        android:title="@string/power_widget_title">
 
