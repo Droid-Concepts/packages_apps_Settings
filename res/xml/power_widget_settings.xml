@@ -31,12 +31,6 @@
             android:key="notification_style"
             android:title="@string/notification_style_title" />
 
-         <CheckBoxPreference
-            android:id="@+id/dc_notification_shortcuts"
-            android:title="@string/notification_show_wifi_ssid_title"
-            android:summary="@string/notification_show_wifi_ssid_summary"
-            android:defaultValue="false" />
-
     </PreferenceCategory>
 
     <PreferenceCategory
