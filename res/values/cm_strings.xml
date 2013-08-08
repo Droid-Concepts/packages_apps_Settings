@@ -972,11 +972,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="set">Set</string>
     <string name="ics_color">Holo</string>
 
-    <!-- Carrier label -->
-    <string name="custom_carrier_label_title">Custom carrier label</string>
-    <string name="custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock label.</string>
-    <string name="custom_carrier_label_notset">Custom label currently not set</string>
-
     <!-- Status bar -->
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_general_title">General</string>
@@ -1114,7 +1109,6 @@ rience. Enable at your own discretion.</string>
     <string name="notification_shortcuts_color_summary">Colorize the stock and/or application shortcut icons</string>
     <string name="notification_shortcuts_colorize_toggle_title">Colorize application icons</string>
     <string name="notification_shortcuts_colorize_toggle_summary">Colorizes any application icons with the chosen icon color</string>
-    <string name="notification_shortcuts_hide_carrier_title">Hide carrier label</string>
 
      <!-- Notification Icons -->
     <string name="notification_shortcuts_icon_picker_alarm">Alarm</string>
@@ -1171,8 +1165,15 @@ rience. Enable at your own discretion.</string>
     <string name="notification_shortcuts_icon_picker_twitter">Twitter</string>
     <string name="notification_shortcuts_icon_picker_unlock">Unlock</string>
 
-    <!-- Notification Drawer  -->
+    <!-- Notification Drawer -->
     <string name="notification_drawer_title">Notification drawer</string>
+
+    <!-- Custom Carrier Label Options -->
+    <string name="carrier_label_title">Carrier Label Options</string>
+    <string name="custom_carrier_label_title">Custom carrier label</string>
+    <string name="custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock label.</string>
+    <string name="custom_carrier_label_notset">Custom label currently not set</string>
+    <string name="hide_carrier_title">Hide carrier label</string>
     <string name="notification_show_wifi_ssid_title">Show Wifi network name</string>
     <string name="notification_show_wifi_ssid_summary">Display the name of the currently connected Wifi network</string>
 </resources>

@@ -61,10 +61,8 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_PIE_CONTROL = "pie_control";
     private static final String KEY_EXPANDED_DESKTOP = "expanded_desktop";
     private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR = "expanded_desktop_no_navbar";
-    private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String PREF_POWER_CRT_MODE = "system_power_crt_mode";
     private static final String PREF_POWER_CRT_SCREEN_OFF = "system_power_crt_screen_off";
-    private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
 
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
@@ -73,8 +71,6 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
     private static ContentResolver mContentResolver;
 
-    Preference mCustomLabel;
-    String mCustomLabelText = null;
     Context mContext;
     ListPreference mCrtMode;
     CheckBoxPreference mCrtOff;
@@ -180,10 +176,6 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
         // Don't display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
 
-        // Custom Carrier Label Text
-        mCustomLabel = findPreference(PREF_CUSTOM_CARRIER_LABEL);
-        updateCustomLabelTextSummary();
-
         boolean isCrtOffChecked = (Settings.System.getBoolean(mContentResolver,
                         Settings.System.SYSTEM_POWER_ENABLE_CRT_OFF, true));
         mCrtOff = (CheckBoxPreference) findPreference(PREF_POWER_CRT_SCREEN_OFF);
@@ -195,19 +187,6 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
         mCrtMode.setValue(Integer.toString(Settings.System.getInt(mContentResolver,
                 Settings.System.SYSTEM_POWER_CRT_MODE, crtMode)));
         mCrtMode.setOnPreferenceChangeListener(this);
-
-        mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
-            mShowWifiName.setOnPreferenceChangeListener(this);
-    }
-
-    private void updateCustomLabelTextSummary() {
-        mCustomLabelText = Settings.System.getString(getActivity().getContentResolver(),
-                Settings.System.CUSTOM_CARRIER_LABEL);
-        if (mCustomLabelText == null || mCustomLabelText.length() == 0) {
-            mCustomLabel.setSummary(R.string.custom_carrier_label_notset);
-        } else {
-            mCustomLabel.setSummary(mCustomLabelText);
-        }
     }
 
     @Override
@@ -235,36 +214,7 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mCustomLabel) {
-            AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-
-            alert.setTitle(R.string.custom_carrier_label_title);
-            alert.setMessage(R.string.custom_carrier_label_explain);
-
-            // Set an EditText view to get user input
-            final EditText input = new EditText(getActivity());
-            input.setText(mCustomLabelText != null ? mCustomLabelText : "");
-            alert.setView(input);
-
-            alert.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int whichButton) {
-                    String value = ((Spannable) input.getText()).toString();
-                    Settings.System.putString(getActivity().getContentResolver(),
-                            Settings.System.CUSTOM_CARRIER_LABEL, value);
-                    updateCustomLabelTextSummary();
-                    Intent i = new Intent();
-                    i.setAction("com.android.settins.LABEL_CHANGED");
-                    getActivity().sendBroadcast(i);
-                }
-            });
-            alert.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int whichButton) {
-                    // Canceled.
-                }
-            });
-
-            alert.show();
-        } else if (preference == mCrtOff) {
+        if (preference == mCrtOff) {
             Settings.System.putBoolean(mContentResolver,
                     Settings.System.SYSTEM_POWER_ENABLE_CRT_OFF,
                     ((TwoStatePreference) preference).isChecked());
@@ -288,10 +238,6 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SYSTEM_POWER_CRT_MODE, crtMode);
             mCrtMode.setSummary(mCrtMode.getEntries()[index]);
-            return true;
-         } else if (preference == mShowWifiName) {
-            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.NOTIFICATION_SHOW_WIFI_SSID,
-                    ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
             return true;
         }
         return false;

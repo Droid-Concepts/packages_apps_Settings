@@ -1878,5 +1878,13 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".cyanogenmod.CarrierLabel"
+            android:label="@string/carrier_label_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
     </application>
 </manifest>

@@ -86,7 +86,6 @@ public class NotificationShortcuts extends SettingsPreferenceFragment implements
     private static final String NOTIFICATION_SHORTCUTS_QUANTITY = "pref_notification_shortcuts_quantity";
     private static final String NOTIFICATION_SHORTCUTS_COLOR = "pref_notification_shortcuts_color";
     private static final String NOTIFICATION_SHORTCUTS_COLORIZE_TOGGLE = "pref_notification_shortcuts_colorize_toggle";
-    private static final String NOTIFICATION_SHORTCUTS_HIDE_CARRIER = "pref_notification_shortcuts_hide_carrier";
 
     public final static String ICON_RESOURCE = "icon_resource";
     public final static String ICON_PACKAGE = "icon_package";
@@ -103,7 +102,6 @@ public class NotificationShortcuts extends SettingsPreferenceFragment implements
     private Preference mNotificationShortcutsReset;
     private Preference mNotificationShortcutsColor;
     private CheckBoxPreference mNotificationShortcutsColorizeToggle;
-    private CheckBoxPreference mNotificationShortcutsHideCarrier;
 
     private ImageButton mDialogIcon;
     private Button mDialogLabel;
@@ -263,20 +261,6 @@ public class NotificationShortcuts extends SettingsPreferenceFragment implements
             public boolean onPreferenceChange(Preference preference,
                         Object newValue) {
                 Settings.System.putInt(mCr, Settings.System.NOTIFICATION_SHORTCUTS_COLORIZE_TOGGLE, (Boolean) newValue ? 1 : 0);
-                return true;
-            }
-        });
-
-        mNotificationShortcutsHideCarrier = (CheckBoxPreference) mPrefSet.findPreference(
-                NOTIFICATION_SHORTCUTS_HIDE_CARRIER);
-        mNotificationShortcutsHideCarrier.setChecked(Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.NOTIFICATION_SHORTCUTS_HIDE_CARRIER, 0, UserHandle.USER_CURRENT_OR_SELF) == 1);
-        mNotificationShortcutsHideCarrier.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference,
-                        Object newValue) {
-                Settings.System.putInt(mCr, Settings.System.NOTIFICATION_SHORTCUTS_HIDE_CARRIER, (Boolean) newValue ? 1 : 0);
-                Helpers.restartSystemUI();
                 return true;
             }
         });

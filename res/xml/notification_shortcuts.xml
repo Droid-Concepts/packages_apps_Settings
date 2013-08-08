@@ -44,9 +44,6 @@
         android:summary="@string/notification_shortcuts_colorize_toggle_summary"
         android:dependency="pref_notification_shortcuts_toggle" />
 
-    <CheckBoxPreference android:key="pref_notification_shortcuts_hide_carrier"
-        android:title="@string/notification_shortcuts_hide_carrier_title" />
-
     <PreferenceCategory android:key="pref_notification_shortcuts_list"
         android:title="@string/notification_shortcuts_title" />
 
