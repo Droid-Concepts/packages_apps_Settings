@@ -177,9 +177,7 @@ public class AppWidgetLoader<Item extends AppWidgetLoader.LabelledItem> {
      */
     void putInstalledAppWidgets(List<Item> items, int categoryFilter) {
         List<AppWidgetProviderInfo> installed =
-                mAppWidgetManager.getInstalledProviders(
-                    AppWidgetProviderInfo.WIDGET_CATEGORY_HOME_SCREEN
-                    | AppWidgetProviderInfo.WIDGET_CATEGORY_KEYGUARD);
-        putAppWidgetItems(installed, null, items, categoryFilter, showall);
+                mAppWidgetManager.getInstalledProviders(categoryFilter);
+        putAppWidgetItems(installed, null, items, categoryFilter, false);
     }
 }
