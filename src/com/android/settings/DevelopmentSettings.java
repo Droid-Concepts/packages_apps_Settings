@@ -98,7 +98,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private static final String ENABLE_ADB = "enable_adb";
     private static final String ADB_NOTIFY = "adb_notify";
     private static final String ADB_TCPIP  = "adb_over_network";
-    private static final String CLEAR_ADB_KEYS = "clear_adb_keys";
     private static final String KEEP_SCREEN_ON = "keep_screen_on";
     private static final String ALLOW_MOCK_LOCATION = "allow_mock_location";
     private static final String HDCP_CHECKING_KEY = "hdcp_checking";
@@ -169,7 +168,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private CheckBoxPreference mEnableAdb;
     private CheckBoxPreference mAdbNotify;
-    private Preference mClearAdbKeys;
     private Preference mBugreport;
     private CheckBoxPreference mBugreportInPower;
     private CheckBoxPreference mAdbOverNetwork;
@@ -252,15 +250,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         mAdbNotify = (CheckBoxPreference) findPreference(ADB_NOTIFY);
         mAllPrefs.add(mAdbNotify);
 
-        mClearAdbKeys = findPreference(CLEAR_ADB_KEYS);
-        if (!SystemProperties.getBoolean("ro.adb.secure", false)) {
-            PreferenceGroup debugDebuggingCategory = (PreferenceGroup)
-                    findPreference(DEBUG_DEBUGGING_CATEGORY_KEY);
-            if (debugDebuggingCategory != null) {
-                debugDebuggingCategory.removePreference(mClearAdbKeys);
-            }
-        }
-
         mBugreport = findPreference(BUGREPORT);
         mBugreportInPower = findAndInitCheckboxPref(BUGREPORT_IN_POWER_KEY);
         mAdbOverNetwork = findAndInitCheckboxPref(ADB_TCPIP);
@@ -273,7 +262,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
         if (!android.os.Process.myUserHandle().equals(UserHandle.OWNER)) {
             disableForUser(mEnableAdb);
-            disableForUser(mClearAdbKeys);
             disableForUser(mPassword);
             disableForUser(mAdvancedReboot);
         }
@@ -1196,14 +1184,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                 mVerifyAppsOverUsb.setEnabled(false);
                 mVerifyAppsOverUsb.setChecked(false);
                 updateBugreportOptions();
-            }
-        } else if (preference == mClearAdbKeys) {
-            if (mAdbKeysDialog != null) dismissDialogs();
-            mAdbKeysDialog = new AlertDialog.Builder(getActivity())
-                        .setMessage(R.string.adb_keys_warning_message)
-                        .setPositiveButton(android.R.string.ok, this)
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
+            };
         } else if (preference == mBugreportInPower) {
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.BUGREPORT_IN_POWER_MENU, 
