@@ -44,6 +44,7 @@ import android.provider.Settings;
 import android.util.Log;
 
 import com.android.internal.view.RotationPolicy;
+import com.android.settings.cyanogenmod.DisplayColor;
 import com.android.settings.cyanogenmod.DisplayRotation;
 import com.android.settings.Utils;
 
@@ -66,6 +67,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_HOME_WAKE = "pref_home_wake";
     private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
     private static final String KEY_SCREEN_OFF_ANIMATION = "screen_off_animation";
+    private static final String KEY_DISPLAY_COLOR = "color_calibration";
     private static final String KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
 
     // Strings used for building the summary
@@ -200,6 +202,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             getPreferenceScreen().removePreference(mScreenOffAnimation);
         }
 
+        if (!DisplayColor.isSupported()) {
+            removePreference(KEY_DISPLAY_COLOR);
+        }
+
         // Default value for wake-on-plug behavior from config.xml
         boolean wakeUpWhenPluggedOrUnpluggedConfig = res.getBoolean(
                 com.android.internal.R.bool.config_unplugTurnsOnScreen);
@@ -209,6 +215,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mWakeWhenPluggedOrUnplugged.setChecked(Settings.Global.getInt(resolver,
                 Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
                 (wakeUpWhenPluggedOrUnpluggedConfig ? 1 : 0)) == 1);
+
     }
 
     private void updateDisplayRotationPreferenceDescription() {
