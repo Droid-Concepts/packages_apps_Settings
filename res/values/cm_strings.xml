@@ -52,6 +52,15 @@
     <!-- Security & location settings screen, setting check box title. This setting controls whether the dots will be drawn when using the lockscreen pattern.-->
     <string name="lockpattern_settings_enable_dots_title">Show pattern dots</string>
 
+    <!-- Setting checkbox title for root access -->
+    <string name="root_access">Root access</string>
+    <string name="root_access_warning_title">Allow root access?</string>
+    <string name="root_access_warning_message">Allowing applications to request root access is very dangerous and could compromise the security of your system!</string>
+    <string name="root_access_none">Disabled</string>
+    <string name="root_access_apps">Apps only</string>
+    <string name="root_access_adb">ADB only</string>
+    <string name="root_access_all">Apps and ADB</string>
+
     <!-- Title for the accessibility preference to home button to answers a call. [CHAR LIMIT=35] -->
     <string name="accessibility_home_button_answers_call_prerefence_title">Home button answers call</string>
 
@@ -916,6 +925,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Display Screen-on and off Electron beam animations -->
     <string name="screen_off_animation_title">Screen-off animation</string>
     <string name="screen_off_animation_summary">Show the electron beam animation when the screen is turned off</string>
+
+    <!-- Turn on display when power connected; turn off display when power disconnected -->
+    <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
+    <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting the charger</string>
 
     <!-- Delete apn confirmation dialog message -->
     <string name="confirm_delete_apn">The APN will be deleted.</string>
