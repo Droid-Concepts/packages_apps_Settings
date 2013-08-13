@@ -246,7 +246,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
         addPreferencesFromResource(R.xml.development_prefs);
 
-        mEnableAdb = findAndInitCheckboxPref(ENABLE_ADB);
+        mEnableAdb = (CheckBoxPreference) findPreference(ENABLE_ADB);
         mAdbNotify = (CheckBoxPreference) findPreference(ADB_NOTIFY);
         mAllPrefs.add(mAdbNotify);
 
@@ -471,7 +471,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         final ContentResolver cr = context.getContentResolver();
         mHaveDebugSettings = false;
         updateCheckBox(mEnableAdb, Settings.Global.getInt(cr,
-                Settings.Global.ADB_ENABLED, mUnofficialBuild ? 1 : 0) != 0);
+                Settings.Global.ADB_ENABLED,1) != 0);
         mAdbNotify.setChecked(Settings.Secure.getInt(cr,
                 Settings.Secure.ADB_NOTIFY, 1) != 0);
         updateCheckBox(mBugreportInPower, Settings.Secure.getInt(cr,
@@ -677,8 +677,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private boolean enableVerifierSetting() {
         final ContentResolver cr = getActivity().getContentResolver();
-        if (Settings.Global.getInt(cr, Settings.Global.ADB_ENABLED,
-                    mUnofficialBuild ? 1 : 0) == 0) {
+        if (Settings.Global.getInt(cr, Settings.Global.ADB_ENABLED, 1) == 0) {
             return false;
         }
         if (Settings.Global.getInt(cr, Settings.Global.PACKAGE_VERIFIER_ENABLE, 1) == 0) {
@@ -1165,26 +1164,9 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         }
 
         if (preference == mEnableAdb) {
-            if (mEnableAdb.isChecked()) {
-                mDialogClicked = false;
-                if (mAdbDialog != null) {
-                    dismissDialogs();
-                }
-                mAdbDialog = new AlertDialog.Builder(getActivity()).setMessage(
-                        getActivity().getResources().getString(R.string.adb_warning_message))
-                        .setTitle(R.string.adb_warning_title)
-                        .setIconAttribute(android.R.attr.alertDialogIcon)
-                        .setPositiveButton(android.R.string.yes, this)
-                        .setNegativeButton(android.R.string.no, this)
-                        .show();
-                mAdbDialog.setOnDismissListener(this);
-            } else {
-                Settings.Global.putInt(getActivity().getContentResolver(),
-                        Settings.Global.ADB_ENABLED, 0);
-                mVerifyAppsOverUsb.setEnabled(false);
-                mVerifyAppsOverUsb.setChecked(false);
-                updateBugreportOptions();
-            };
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Global.ADB_ENABLED, 
+                    mEnableAdb.isChecked() ? 1 : 0);
         } else if (preference == mBugreportInPower) {
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.BUGREPORT_IN_POWER_MENU, 
@@ -1360,13 +1342,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     public void onDismiss(DialogInterface dialog) {
         // Assuming that onClick gets called first
-        if (dialog == mAdbDialog) {
-            if (!mDialogClicked) {
-                mEnableAdb.setChecked(false);
-            }
-            mAdbDialog = null;
-
-        } else if (dialog == mAdbTcpDialog) {
+        if (dialog == mAdbTcpDialog) {
             updateAdbOverNetwork();
             mAdbTcpDialog = null;
 
