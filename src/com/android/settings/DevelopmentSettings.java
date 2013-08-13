@@ -1340,16 +1340,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                 Settings.Secure.putInt(getActivity().getContentResolver(),
                         Settings.Secure.ADB_PORT, 5555);
             }
-        } else if (dialog == mAdbKeysDialog) {
-            if (which == DialogInterface.BUTTON_POSITIVE) {
-                try {
-                    IBinder b = ServiceManager.getService(Context.USB_SERVICE);
-                    IUsbManager service = IUsbManager.Stub.asInterface(b);
-                    service.clearUsbDebuggingKeys();
-                } catch (RemoteException e) {
-                    Log.e(TAG, "Unable to clear adb keys", e);
-                }
-            }
         } else if (dialog == mEnableDialog) {
             if (which == DialogInterface.BUTTON_POSITIVE) {
                 mDialogClicked = true;
