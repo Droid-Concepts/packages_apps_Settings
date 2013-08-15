@@ -45,7 +45,7 @@
     <!-- Quiet hours -->
     <PreferenceScreen
             android:key="quiet_hours"
-            android:fragment="com.android.settings.cyanogenmod.QuietHours"
+            android:fragment="com.android.settings.dc.QuietHours"
             android:title="@string/quiet_hours_title" />
 
     <PreferenceCategory
@@ -135,7 +135,7 @@
             android:persistent="false"
             android:defaultValue="false" />
 
-    <com.android.settings.cyanogenmod.VibratorIntensity
+    <com.android.settings.dc.VibratorIntensity
             android:key="vibrator_intensity"
             android:title="@string/vibrator_intensity_title"
             android:dialogTitle="@string/vibrator_intensity_title"

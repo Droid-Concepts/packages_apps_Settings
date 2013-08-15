@@ -54,7 +54,7 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.VolumePanel;
 
-import com.android.settings.cyanogenmod.VibratorIntensity;
+import com.android.settings.dc.VibratorIntensity;
 
 import java.util.Date;
 import java.util.Calendar;

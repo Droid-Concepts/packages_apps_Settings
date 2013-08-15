@@ -100,7 +100,7 @@
 
         <uses-library android:name="org.cyanogenmod.hardware" required="false" />
 
-        <receiver android:name=".cyanogenmod.LockscreenInterface$DeviceAdminLockscreenReceiver"
+        <receiver android:name=".dc.LockscreenInterface$DeviceAdminLockscreenReceiver"
             android:permission="android.permission.BIND_DEVICE_ADMIN">
             <meta-data android:name="android.app.device_admin"
                 android:resource="@xml/device_admin_lockscreen" />
@@ -109,7 +109,7 @@
         <!-- Only system/su can open this activity -->
         <!-- This activity will then call the MultitaskSuRequestActivity to create a new task stack -->
         <activity
-            android:name=".cyanogenmod.superuser.RequestActivity"
+            android:name=".dc.superuser.RequestActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/superuser"
             android:launchMode="singleTask"
@@ -122,7 +122,7 @@
         <!-- This is activity is started in multiuser mode when the user invoking su -->
         <!-- is not the device owner (user id 0). -->
         <activity
-            android:name=".cyanogenmod.superuser.NotifyActivity"
+            android:name=".dc.superuser.NotifyActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/superuser"
             android:launchMode="singleTask"
@@ -134,7 +134,7 @@
 
         <!-- Multiple instances of this activity can be running for multiple su requests -->
         <activity
-            android:name=".cyanogenmod.superuser.MultitaskSuRequestActivity"
+            android:name=".dc.superuser.MultitaskSuRequestActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:excludeFromRecents="true"
             android:exported="false"
@@ -144,11 +144,11 @@
             android:theme="@style/RequestThemeDark" />
 
         <receiver
-            android:name=".cyanogenmod.superuser.SuReceiver"
+            android:name=".dc.superuser.SuReceiver"
             android:permission="android.permission.REPORT_SUPERUSER" />
 
         <receiver
-            android:name=".cyanogenmod.superuser.PackageChangeReceiver" >
+            android:name=".dc.superuser.PackageChangeReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <data android:scheme="package" />
@@ -1589,14 +1589,14 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
-        <!-- CyanogenMod activities Start -->
-        <activity android:name=".cyanogenmod.PowerWidget" />
-        <activity android:name=".cyanogenmod.NotificationDrawerStyle" />
-        <activity android:name=".cyanogenmod.SystemSettings" />
-        <activity android:name=".cyanogenmod.StatusBar" />
-        <activity android:name=".cyanogenmod.StatusBarClockStyle" />
-        <activity android:name=".cyanogenmod.StatusBarBatteryStyle" />
-        <activity android:name=".cyanogenmod.StatusBarStyle" />
+        <!-- Droid Concepts activities Start -->
+        <activity android:name=".dc.NotificationDrawer" />
+        <activity android:name=".dc.NotificationDrawerStyle" />
+        <activity android:name=".dc.SystemSettings" />
+        <activity android:name=".dc.StatusBar" />
+        <activity android:name=".dc.StatusBarClockStyle" />
+        <activity android:name=".dc.StatusBarBatteryStyle" />
+        <activity android:name=".dc.StatusBarStyle" />
         <activity android:name="Settings$SystemSettingsActivity"
                 android:label="@string/system_settings_title"
                 android:taskAffinity=""
@@ -1606,16 +1606,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.cyanogenmod.SystemSettings" />
+                android:value="com.android.settings.dc.SystemSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/system_settings" />
         </activity>
 
-        <activity android:name=".cyanogenmod.AutoBrightnessSetup"
+        <activity android:name=".dc.AutoBrightnessSetup"
                 android:excludeFromRecents="true"
                 android:theme="@*android:style/Theme.Holo.Dialog.Alert" />
 
-        <activity android:name=".cyanogenmod.PerformanceSettings" />
+        <activity android:name=".dc.PerformanceSettings" />
 
         <activity android:name="Settings$QuietHoursSettingsActivity"
                 android:label="@string/quiet_hours_title"
@@ -1626,7 +1626,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.cyanogenmod.QuietHours" />
+                android:value="com.android.settings.dc.QuietHours" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/sound_settings" />
         </activity>
@@ -1675,17 +1675,17 @@
 
         <activity android:name=".profiles.NFCProfileSelect" />
 
-        <activity android:name=".cyanogenmod.LockscreenTargets" />
+        <activity android:name=".dc.LockscreenTargets" />
 
-        <activity android:name=".cyanogenmod.ChangeLog" />
+        <activity android:name=".dc.ChangeLog" />
 
-        <activity android:name=".cyanogenmod.LockscreenInterface" />
+        <activity android:name=".dc.LockscreenInterface" />
 
-        <activity android:name=".cyanogenmod.LockscreenButtons" />
+        <activity android:name=".dc.LockscreenButtons" />
 
-        <activity android:name=".cyanogenmod.PowerMenu" />
+        <activity android:name=".dc.PowerMenu" />
 
-        <activity android:name=".cyanogenmod.QuickSettings" />
+        <activity android:name=".dc.QuickSettings" />
 
         <!-- "Blacklist settings" UI, used only on voice-capable phone devices. -->
         <activity android:name="Settings$BlacklistSettingsActivity"
@@ -1726,7 +1726,7 @@
                 android:value="com.android.settings.cmstats.AnonymousStats" />
         </activity>
 
-        <!-- CyanogenMod activities End -->
+        <!-- Droid Concepts activities End -->
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
@@ -1839,8 +1839,8 @@
                 android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="com.android.settings.cyanogenmod.notificationshortcuts.NOTIFICATION_SHORTCUTS" />
-                <action android:name="android.settings.cyanogenmod.notificationshortcuts.NOTIFICATION_SHORTCUTS" />
+                <action android:name="com.android.settings.dc.notificationshortcuts.NOTIFICATION_SHORTCUTS" />
+                <action android:name="android.settings.dc.notificationshortcuts.NOTIFICATION_SHORTCUTS" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.VOICE_LAUNCH" />
                 <category android:name="com.android.settings.SHORTCUT" />
@@ -1859,7 +1859,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".cyanogenmod.BootReceiver" android:enabled="true">
+        <receiver android:name=".dc.BootReceiver" android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -1873,7 +1873,7 @@
         </receiver>
 
         <activity
-            android:name=".cyanogenmod.About"
+            android:name=".dc.About"
             android:label="@string/about_droid_concepts" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1881,7 +1881,7 @@
         </activity>
 
         <activity
-            android:name=".cyanogenmod.CarrierLabel"
+            android:name=".dc.CarrierLabel"
             android:label="@string/carrier_label_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
