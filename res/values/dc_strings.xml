@@ -1191,4 +1191,10 @@ rience. Enable at your own discretion.</string>
     <string name="color_red_title">Red</string>
     <string name="color_green_title">Green</string>
     <string name="color_blue_title">Blue</string>
+
+    <!-- Hardware tunables - Key backlight -->
+    <string name="key_backlight_title">Backlight</string>
+    <string name="button_backlight_title">Button backlight brightness</string>
+    <string name="keyboard_backlight_title">Keyboard backlight brightness</string>
+
 </resources>
