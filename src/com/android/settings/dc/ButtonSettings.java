@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.cyanogenmod;
+package com.android.settings.dc;
 
 import android.content.ContentResolver;
 import android.content.res.Resources;
@@ -28,8 +28,8 @@ import android.provider.Settings;
 import android.widget.Toast;
 
 import com.android.settings.R;
-import com.android.settings.cyanogenmod.ButtonBacklightBrightness;
-import com.android.settings.cyanogenmod.KeyboardBacklightBrightness;
+import com.android.settings.dc.ButtonBacklightBrightness;
+import com.android.settings.dc.KeyboardBacklightBrightness;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
