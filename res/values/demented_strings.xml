@@ -17,7 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- PERSONALIZATION Settings  -->
     <!-- Settings main menu category heading. Interface (Launcher, Themes, System). [CHAR LIMIT=40] -->
-    <string name="header_category_interface">DEMENTED Interface</string>
+    <string name="header_category_interface">Droid Concepts Interface</string>
 
     <!-- Interface settings  -->
     <string name="interface_settings_title">Interface</string>
@@ -31,7 +31,7 @@
     <string name="device_hostname">Device hostname</string>
 
     <!-- About phone screen,  Modversion-->
-    <string name="mod_version">DEMENTED version</string>
+    <string name="mod_version">Droid Concepts version</string>
     <string name="mod_version_default">Unknown</string>
 
     <!-- About phone screen, build date of ROM -->
