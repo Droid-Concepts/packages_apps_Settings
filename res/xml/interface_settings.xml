@@ -53,11 +53,6 @@
             android:fragment="com.android.settings.demented.SoundSettings"
             android:title="@string/sound_title" />
 
-        <CheckBoxPreference
-            android:key="kill_app_longpress_back"
-            android:title="@string/kill_app_longpress_back"
-            android:summary="@string/kill_app_longpress_back_summary"/>
-
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -73,6 +68,11 @@
             android:key="battery_light"
             android:title="@string/battery_light_title"
             android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
+
+        <CheckBoxPreference
+            android:key="kill_app_longpress_back"
+            android:title="@string/kill_app_longpress_back"
+            android:summary="@string/kill_app_longpress_back_summary"/>
 
     </PreferenceCategory>
 
