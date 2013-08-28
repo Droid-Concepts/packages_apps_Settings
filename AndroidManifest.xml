@@ -1740,13 +1740,16 @@
         </receiver>
 
         <activity
-<<<<<<< HEAD
             android:name=".demented.CarrierLabel"
             android:label="@string/carrier_label_title" >
-=======
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".cyanogenmod.About"
             android:label="@string/about_droid_concepts" >
->>>>>>> 19a85dd... add about dc screen to settings
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
