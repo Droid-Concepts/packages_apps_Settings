@@ -917,6 +917,7 @@
         <item>Animation off</item>
         <item>Animation scale .25x</item>
         <item>Animation scale .5x</item>
+        <item>Animation scale .75x</item>
         <item>Animation scale 1x</item>
         <item>Animation scale 1.5x</item>
         <item>Animation scale 2x</item>
@@ -929,6 +930,7 @@
         <item>0</item>
         <item>.25</item>
         <item>.5</item>
+        <item>.75</item>
         <item>1</item>
         <item>1.5</item>
         <item>2</item>
@@ -941,6 +943,7 @@
         <item>Animation off</item>
         <item>Animation scale .25x</item>
         <item>Animation scale .5x</item>
+        <item>Animation scale .75x</item>
         <item>Animation scale 1x</item>
         <item>Animation scale 1.5x</item>
         <item>Animation scale 2x</item>
@@ -953,6 +956,7 @@
         <item>0</item>
         <item>.25</item>
         <item>.5</item>
+        <item>.75</item>
         <item>1</item>
         <item>1.5</item>
         <item>2</item>
@@ -965,6 +969,7 @@
         <item>Animation off</item>
         <item>Animation scale .25x</item>
         <item>Animation scale .5x</item>
+        <item>Animation scale .75x</item>
         <item>Animation scale 1x</item>
         <item>Animation scale 1.5x</item>
         <item>Animation scale 2x</item>
@@ -977,6 +982,7 @@
         <item>0</item>
         <item>.25</item>
         <item>.5</item>
+        <item>.75</item>
         <item>1</item>
         <item>1.5</item>
         <item>2</item>
