@@ -33,20 +33,14 @@ public class PowerMenu extends SettingsPreferenceFragment {
     private static final String KEY_PROFILES = "power_menu_profiles";
     private static final String KEY_AIRPLANE = "power_menu_airplane";
     private static final String KEY_SILENT = "power_menu_silent";
-<<<<<<< HEAD
-=======
     private static final String PREF_NAVBAR_HIDE = "show_navbar_hide";
->>>>>>> remotes/cp/dd43-a
 
     private CheckBoxPreference mRebootPref;
     private CheckBoxPreference mScreenshotPref;
     private CheckBoxPreference mProfilesPref;
     private CheckBoxPreference mAirplanePref;
     private CheckBoxPreference mSilentPref;
-<<<<<<< HEAD
-=======
     private CheckBoxPreference mShowNavBarHide;
->>>>>>> remotes/cp/dd43-a
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -79,14 +73,11 @@ public class PowerMenu extends SettingsPreferenceFragment {
         mSilentPref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.POWER_MENU_SILENT_ENABLED, 1) == 1));
 
-<<<<<<< HEAD
-=======
         mShowNavBarHide = (CheckBoxPreference) findPreference(PREF_NAVBAR_HIDE);
         mShowNavBarHide.setChecked(Settings.System.getBoolean(getActivity()
                 .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_NAVBAR_HIDE,
                 false));
 
->>>>>>> remotes/cp/dd43-a
     }
 
     @Override
@@ -108,31 +99,16 @@ public class PowerMenu extends SettingsPreferenceFragment {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.POWER_MENU_PROFILES_ENABLED,
                     value ? 1 : 0);
-<<<<<<< HEAD
-       } else if (preference == mAirplanePref) {
-=======
         } else if (preference == mAirplanePref) {
->>>>>>> remotes/cp/dd43-a
             value = mAirplanePref.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.POWER_MENU_AIRPLANE_ENABLED,
                     value ? 1 : 0);
-<<<<<<< HEAD
-       } else if (preference == mSilentPref) {
-=======
         } else if (preference == mSilentPref) {
->>>>>>> remotes/cp/dd43-a
             value = mSilentPref.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.POWER_MENU_SILENT_ENABLED,
                     value ? 1 : 0);
-<<<<<<< HEAD
-        } else {
-            return super.onPreferenceTreeClick(preferenceScreen, preference);
-        }
-
-        return true;
-=======
         } else if (preference == mShowNavBarHide) {
 			value = mShowNavBarHide.isChecked();
             Settings.System.putInt(getContentResolver(),
@@ -142,7 +118,6 @@ public class PowerMenu extends SettingsPreferenceFragment {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
       return true;
->>>>>>> remotes/cp/dd43-a
     }
 
 }

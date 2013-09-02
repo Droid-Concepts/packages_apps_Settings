@@ -439,12 +439,9 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
     public void onReleased(View v, int handle) {
     }
 
-<<<<<<< HEAD
-=======
     public void onTargetChange(View v, int whichHandle) {
     }
 
->>>>>>> remotes/cp/dd43-a
     @Override
     public void onTrigger(View v, final int target) {
         mTargetIndex = target;
