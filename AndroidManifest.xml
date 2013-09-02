@@ -1773,6 +1773,10 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".demented.Navbar"
+            android:label="@string/title_navbar" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
