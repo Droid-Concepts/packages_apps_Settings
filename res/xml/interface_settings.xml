@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The CyanogenMod Project
+<!-- Copyright (C) 2013 DEMENTED Droid
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
     android:title="@string/interface_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-  <PreferenceScreen android:key="logo1"
+    <PreferenceScreen android:key="logo1"
         android:layout="@layout/logo_row" />
 
     <PreferenceCategory
@@ -35,6 +35,16 @@
             android:key="notification_drawer"
             android:fragment="com.android.settings.demented.PowerWidget"
             android:title="@string/notification_drawer_title" />
+
+        <PreferenceScreen
+            android:key="statusbar_toggles"
+            android:fragment="com.android.settings.demented.StatusBarToggles"
+            android:title="@string/title_statusbar_toggles" />
+
+        <CheckBoxPreference
+            android:key="statusbar_hidden"
+            android:title="@string/statusbar_hide_title"
+            android:summary="@string/statusbar_hide_summary" />
 
     </PreferenceCategory>
 
@@ -53,6 +63,11 @@
         </PreferenceScreen>
 
         <PreferenceScreen
+            android:id="@+id/performance_settings"
+            android:fragment="com.android.settings.demented.PerformanceSettings"
+            android:title="@string/performance_settings_title" />
+
+        <PreferenceScreen
             android:key="lock_clock"
             android:title="@string/lock_clock_title"
             android:summary="@string/lock_clock_summary">
@@ -66,6 +81,25 @@
             android:fragment="com.android.settings.demented.HardwareKeys"
             android:title="@string/hardware_keys_title" />
 
+        <Preference
+            android:key="transparency_dialog"
+            android:title="@string/transparency_dialog_title" />
+
+        <PreferenceScreen
+            android:fragment="com.android.settings.demented.Navbar"
+            android:title="@string/title_navbar"
+            android:summary="@string/header_summary_navbar" />
+
+        <PreferenceScreen
+            android:fragment="com.android.settings.demented.NavRingTargets"
+            android:title="@string/interface_navring_settings_title"
+            android:summary="@string/interface_navring_settings_summary" />
+
+        <PreferenceScreen
+            android:fragment="com.android.settings.demented.RibbonTargets"
+            android:title="@string/ribbon_settings_title"
+            android:summary="@string/ribbon_settings_summary" />
+
         <PreferenceScreen
             android:key="power_menu"
             android:title="@string/power_menu_title"
@@ -75,17 +109,6 @@
             android:key="sound_settings"
             android:fragment="com.android.settings.demented.SoundSettings"
             android:title="@string/sound_title" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="performance_settings"
-        android:title="@string/performance_settings_title">
-
-        <PreferenceScreen
-            android:id="@+id/performance_settings"
-            android:fragment="com.android.settings.demented.PerformanceSettings"
-            android:title="@string/performance_settings_title" />
 
     </PreferenceCategory>
 
@@ -105,6 +128,12 @@
             android:entries="@array/entries_system_power_crt_mode"
             android:entryValues="@array/values_system_power_crt_mode"
             android:dependency="system_power_crt_screen_off" />
+
+        <CheckBoxPreference
+            android:key="force_dualpanel"
+            android:title="@string/multipane_ui"
+            android:summary="@string/multipane_ui_summary"
+            android:defaultValue="false" />
 
         <PreferenceScreen
             android:key="notification_pulse"
