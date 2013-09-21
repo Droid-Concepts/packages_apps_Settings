@@ -105,12 +105,12 @@
             android:targetClass="com.tmobile.themechooser.ThemeChooser" />
     </header>
 
-    <!-- Superuser -->
+    <!-- Superuser 
     <header
         android:id="@+id/superuser"
         android:fragment="com.android.settings.demented.superuser.PolicyNativeFragment"
         android:icon="@drawable/ic_action_permission"
-        android:title="@string/superuser" />
+        android:title="@string/superuser" />  -->
 
     <header
 	android:id="@+id/about"
