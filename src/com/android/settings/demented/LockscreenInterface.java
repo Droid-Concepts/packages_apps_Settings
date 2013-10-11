@@ -421,8 +421,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements P
             return true;
         }
         return false;
-          
-           }
         }
     }
 }
