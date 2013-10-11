@@ -31,6 +31,7 @@
     <string name="demented_navbar">Navbar / Ribbons</string>
     <string name="toggle_setup">Toggle Setup</string>
     <string name="reset_button">Reset</string>
+    <string name="general_general_title">General</string>
 
     <!-- App Ops -->
     <string name="demented_app_ops_title">Droid Concepts Permissions</string>
