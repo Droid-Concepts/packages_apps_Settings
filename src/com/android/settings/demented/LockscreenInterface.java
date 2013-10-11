@@ -405,7 +405,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements P
                 }
                 Toast.makeText(mActivity, getResources().getString(R.string.
                         lockscreen_background_result_not_successful), Toast.LENGTH_LONG).show();
-     }
+            }
+        }
+    }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
