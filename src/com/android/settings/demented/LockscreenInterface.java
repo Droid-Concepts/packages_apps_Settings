@@ -254,10 +254,16 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements P
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        ContentResolver cr = getActivity().getContentResolver();
-        if (preference == mCustomBackground) {
-            int indexOf = mCustomBackground.findIndexOfValue(objValue.toString());
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        boolean handled = false;
+        if (preference == mLockscreenTextColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_CUSTOM_TEXT_COLOR, intHex);
+        } else if (preference == mCustomBackground) {
+            int indexOf = mCustomBackground.findIndexOfValue(newValue.toString());
             switch (indexOf) {
             //Displays color dialog when user has chosen color fill
             case 0:
@@ -351,11 +357,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements P
             }
             return true;
         } else if (preference == mBgAlpha) {
-            float val = Float.parseFloat((String) objValue);
+            float val = Float.parseFloat((String) newValue);
             Settings.System.putFloat(getActivity().getContentResolver(),
                     Settings.System.LOCKSCREEN_ALPHA, val / 100);
             return true;
-
         }
         return false;
     }
@@ -406,21 +411,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements P
                 Toast.makeText(mActivity, getResources().getString(R.string.
                         lockscreen_background_result_not_successful), Toast.LENGTH_LONG).show();
             }
-        }
-    }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        boolean handled = false;
-        if (preference == mLockscreenTextColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.LOCKSCREEN_CUSTOM_TEXT_COLOR, intHex);
-            return true;
-        }
-        return false;
         }
     }
 }
