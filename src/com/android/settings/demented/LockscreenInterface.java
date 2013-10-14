@@ -245,7 +245,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements P
                     ((CheckBoxPreference)preference).isChecked() ? 1 : 0);
             return true;
         } else if (preference == mLockscreenAutoRotate) {
-            Settings.System.putBoolean(mContext.getContentResolver(),
+            Settings.System.putBoolean(getActivity().getContentResolver(),
                     Settings.System.LOCKSCREEN_AUTO_ROTATE,
                     ((CheckBoxPreference) preference).isChecked());
             return true;
