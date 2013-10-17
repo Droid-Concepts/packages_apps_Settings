@@ -49,6 +49,8 @@ import com.android.internal.view.RotationPolicy;
 import com.android.settings.demented.DisplayColor;
 import com.android.settings.demented.DisplayRotation;
 import com.android.settings.Utils;
+import com.android.settings.DreamSettings;
+import com.android.settings.util.Helpers;
 
 import java.util.ArrayList;
 
