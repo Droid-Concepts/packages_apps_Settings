@@ -68,12 +68,12 @@
         android:fragment="com.android.settings.gummy.GummyInterface"
         android:title="@string/gummy_interface_title" />
 
-    <!-- Superuser -->
+    <!-- Superuser 
     <header
         android:id="@+id/superuser"
         android:fragment="com.android.settings.gummy.superuser.PolicyNativeFragment"
         android:icon="@drawable/ic_action_permission"
-        android:title="@string/superuser" />
+        android:title="@string/superuser" /> -->
 
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
