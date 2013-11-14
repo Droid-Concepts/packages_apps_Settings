@@ -17,14 +17,9 @@
 
     <!-- PERSONALIZATION Settings  -->
     <!-- Settings main menu category heading. Interface (Launcher, Themes, System). [CHAR LIMIT=40] -->
-<<<<<<< HEAD
     <string name="header_category_interface">Droid Concepts Settings</string>
     <string name="gummy_interface_title">Droid Concepts Interface</string>
-=======
-    <string name="header_category_interface">Gummy Settings</string>
-    <string name="gummy_interface_title">Gummy Interface</string>
     <string name="status_bar_catagory">Status Bar / Notification Drawer</string>
->>>>>>> 79713d9... Settings: Port all carrier label options (2/2)
     <string name="advanced_catagory_title">Advanced</string>
     <string name="general_catagory_title">General</string>
     <string name="system_catagory_title">System</string>
