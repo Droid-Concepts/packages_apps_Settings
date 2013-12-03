@@ -26,7 +26,12 @@
             android:summary="@string/unlock_set_unlock_mode_off"
             android:persistent="false"/>
 
-        <CheckBoxPreference
+        <PreferenceScreen
+            android:key="keyguard_style"
+            android:fragment="com.android.settings.slim.LockscreenStyle"
+            android:title="@string/lockscreen_style_title"/>
+
+        <PreferenceScreen
             android:key="keyguard_enable_widgets"
             android:title="@string/security_enable_widgets_title"/>
 
