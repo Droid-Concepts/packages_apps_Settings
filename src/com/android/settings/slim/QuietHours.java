@@ -46,7 +46,7 @@ import android.text.TextUtils;
 import android.widget.EditText;
 
 import com.android.settings.R;
-import com.android.settings.gummy.service.SmsCallHelper;
+import com.android.settings.slim.service.SmsCallHelper;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class QuietHours extends SettingsPreferenceFragment implements
